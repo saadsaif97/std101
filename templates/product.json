@@ -116,11 +116,20 @@
             "text": "{{ product.metafields.custom.influencer.value.description | metafield_tag }}",
             "text_style": "body"
           }
+        },
+        "button_AJfyiq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Check more details",
+            "button_link": "{{ product.metafields.custom.influencer.value.system.url }}",
+            "button_style_secondary": false
+          }
         }
       },
       "block_order": [
         "heading_nKNwDj",
-        "text_8mDqdd"
+        "text_8mDqdd",
+        "button_AJfyiq"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
