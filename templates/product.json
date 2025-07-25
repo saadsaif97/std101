@@ -27,6 +27,13 @@
           "type": "price",
           "settings": {}
         },
+        "text_JEAKkP": {
+          "type": "text",
+          "settings": {
+            "text": "Material: {{ product.metafields.custom.meterial.value }}",
+            "text_style": "body"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -60,6 +67,7 @@
         "vendor",
         "title",
         "price",
+        "text_JEAKkP",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
