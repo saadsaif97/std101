@@ -34,6 +34,12 @@
             "text_style": "body"
           }
         },
+        "custom_liquid_jdkHzG": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.usps != blank %}\n  <ul style=\"list-style: none; padding: 0; margin: 20px 0;\">\n    {% for usp in product.metafields.custom.usps.value %}\n      <li>{{ usp }}</li>\n    {% endfor %}\n  </ul>\n{% endif %}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -68,6 +74,7 @@
         "title",
         "price",
         "text_JEAKkP",
+        "custom_liquid_jdkHzG",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
