@@ -1,0 +1,3 @@
+{%- if product.selected_or_first_available_variant.metafields.custom.delivery_date != blank -%}
+  <p>Expected delivery: {{ product.selected_or_first_available_variant.metafields.custom.delivery_date }}</p>
+{%- endif -%}

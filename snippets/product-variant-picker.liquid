@@ -92,3 +92,22 @@
     </script>
   </variant-selects>
 {%- endunless -%}
+
+<div id="expected-delivery">
+  <p>Expected delivery: {{ product.selected_or_first_available_variant.metafields.custom.delivery_date }}</p>
+</div>
+
+<script>
+  const productUrl = '/products/{{ product.handle }}';
+  document.addEventListener("variant:updated", (e) => {
+    const variant = e.detail.id;
+    const url = `${productUrl}?variant=${variant}&section_id=delivery-date`;
+
+    fetch(url).then(res => res.text()).then(data => {
+      const parser = new DOMParser();
+      const dom = parser.parseFromString(data, "text/html");
+      const newDeliveryDate = dom.getElementById("shopify-section-delivery-date").innerHTML;
+      document.getElementById("expected-delivery").innerHTML = newDeliveryDate
+    })
+  })
+</script>
