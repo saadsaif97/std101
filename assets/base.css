@@ -3595,3 +3595,21 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+
+/* custom badge start */
+.product-card-wrapper {
+  position: relative;
+}
+.custom-badge {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  line-height: 1;
+  padding: 0.5rem 1.3rem 0.6rem 1.3rem;
+  text-align: center;
+  word-break: break-word;
+}
+/* custom badge end */
