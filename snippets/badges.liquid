@@ -5,6 +5,6 @@
         {%- assign custom_badge_text = custom_badge_parts[0] -%}
         {%- assign custom_badge_bg = custom_badge_parts[1] -%}
         {%- assign custom_badge_color = custom_badge_parts[2] -%}
-        <span style="background-color: {{ custom_badge_bg }}; color: {{ custom_badge_color }};" class="badge badge--custom badge--{{ custom_badge_text | handle }}">{{ custom_badge_text }}</span>
+        <span style="background-color: {{ custom_badge_bg }}; color: {{ custom_badge_color }};">{{ custom_badge_text }}</span>
     {%- endfor -%}
 </div>
