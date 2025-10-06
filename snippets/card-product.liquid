@@ -145,11 +145,11 @@
         </div>
       </div>
 
-      <variant-swatches style="z-index: 10;position: relative;display: flex; flex-wrap:wrap;width: 100%;gap: 5px;">
+      {% comment %} <variant-swatches style="z-index: 10;position: relative;display: flex; flex-wrap:wrap;width: 100%;gap: 5px;">
         {%- for variant in card_product.variants -%}
           <img class="swatch-image" style="width: 60px; height: auto; cursor: pointer;" src="{{ variant.featured_image |  image_url: width: 100 }}" alt="{{ variant.title }}">
         {%- endfor -%}
-      </variant-swatches>
+      </variant-swatches> {% endcomment %}
 
       <div class="card__content">
         <div class="card__information">
