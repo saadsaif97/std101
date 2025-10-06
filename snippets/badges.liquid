@@ -1,5 +1,5 @@
 {%- assign custom_badges = product.metafields.custom.badges.value -%}
-<div style="display: flex; flex-direction: column; gap: 10px; position: absolute; right: 0; top: 0;z-index:10;">
+<div style="display: flex; flex-direction: column; gap: 10px; position: absolute; right: 10px; top: 10px;z-index:10;">
     {%- for custom_badge in custom_badges -%}
         {%- assign custom_badge_parts = custom_badge | split: '|' -%}
         {%- assign custom_badge_text = custom_badge_parts[0] -%}
