@@ -1,4 +1,4 @@
-{% assign variant_images = product.selected_or_first_available_variant.metafields.custom.gallery %}
+{% assign variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value | map: "src" %}
 <pre>
     {{ variant_images }}
 </pre>
