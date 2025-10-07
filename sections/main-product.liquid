@@ -724,6 +724,39 @@
   </div>
 </product-info>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const variantSelector = document.querySelector("[name='id']");
+
+    if (!variantSelector) return;
+
+    variantSelector.addEventListener("change", async (event) => {
+      const variantId = event.target.value;
+
+      try {
+        const sectionId = "variant-images";
+        const url = `${window.location.pathname}?section_id=${sectionId}&variant=${variantId}`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Failed to fetch section");
+
+        const html = await response.text();
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = html;
+
+        const newGallery = tempDiv.querySelector("#gallery-wrapper");
+        const galleryWrapper = document.querySelector("#gallery-wrapper");
+
+        if (newGallery && galleryWrapper) {
+          galleryWrapper.innerHTML = newGallery.innerHTML;
+        }
+      } catch (error) {
+        console.error("Error updating variant gallery:", error);
+      }
+    });
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",

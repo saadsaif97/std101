@@ -1,2 +1,4 @@
 {% assign variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value | map: "src" %}
-{% render 'product-media-gallery', variant_images: variant_images %}
+<div class="grid__item product__media-wrapper" id="gallery-wrapper">
+    {% render 'product-media-gallery', variant_images: variant_images %}
+</div>
