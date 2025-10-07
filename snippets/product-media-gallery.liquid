@@ -85,7 +85,9 @@
           %}
         </li>
       {%- endif -%}
-      {%- for media in product.media -%}
+      {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value %}
+      {% assign combined_media = product.media | concat: custom_variant_images %}
+      {%- for media in combined_media -%}
         {% if media_position >= limit
           or media_position >= 1
           and section.settings.hide_variants
@@ -124,8 +126,6 @@
           </li>
         {%- endunless -%}
       {%- endfor -%}
-
-      {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value | map: "src" %}
     </ul>
     <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
       <button
