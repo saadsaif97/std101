@@ -87,7 +87,7 @@
       {%- endif -%}
       {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value %}
       <pre>
-        {{ custom_variant_images }}
+        {{ custom_variant_images | map: 'src' }}
         {{ product.media }}
       </pre>
       {% assign combined_media = product.media %}
