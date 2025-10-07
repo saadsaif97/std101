@@ -85,12 +85,10 @@
           %}
         </li>
       {%- endif -%}
+      {% assign product_media_urls = product.media | map: 'src' %}
       {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value %}
-      <pre>
-        {{ custom_variant_images | json }}
-        {{ product.media | json }}
-      </pre>
-      {% assign combined_media = product.media %}
+      {% assign combined_media = product_media_urls | concat: custom_variant_images %}
+
       {%- for media in combined_media -%}
         {% if media_position >= limit
           or media_position >= 1
