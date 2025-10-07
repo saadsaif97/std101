@@ -85,9 +85,23 @@
           %}
         </li>
       {%- endif -%}
-      {% assign product_media_urls = product.media | map: 'src' %}
+      {% assign combined_media = product.media %}
       {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value %}
-      {% assign combined_media = product_media_urls | concat: custom_variant_images %}
+
+      {%- if custom_variant_images and custom_variant_images.size > 0 -%}
+        {%- for url in custom_variant_images -%}
+          {% assign new_media = hash %}
+          {% assign new_media = new_media | merge: {
+            "id": "custom-" | append: forloop.index,
+            "src": url,
+            "media_type": "image"
+          } %}
+          {% assign combined_media = combined_media | push: new_media %}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- assign media_position = 0 -%}
+      {%- assign media_count = combined_media.size -%}
 
       {%- for media in combined_media -%}
         {% if media_position >= limit
