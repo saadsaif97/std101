@@ -86,6 +86,10 @@
         </li>
       {%- endif -%}
       {% assign custom_variant_images = product.selected_or_first_available_variant.metafields.custom.gallery.value %}
+      <pre>
+        {{ custom_variant_images }}
+        {{ product.media }}
+      </pre>
       {% assign combined_media = product.media %}
       {%- for media in combined_media -%}
         {% if media_position >= limit
